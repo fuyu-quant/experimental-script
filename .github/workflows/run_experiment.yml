@@ -23,7 +23,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run experiment
-        run: python src/main.py > output/output.log 2> output/error.log
+        run: python src/main.py > output/output.txt 2> output/error.txt
 
       - uses: actions/upload-artifact@v4
         with:
