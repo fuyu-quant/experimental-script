@@ -20,7 +20,10 @@ def evaluate_model(model, test_loader, device):
     # Calculate metrics
     accuracy = accuracy_score(all_targets, all_preds)
     precision, recall, f1, _ = precision_recall_fscore_support(
-        all_targets, all_preds, average='weighted'
+        all_targets,
+        all_preds,
+        average='weighted',
+        zero_division=0  # Handle undefined recall
     )
     
     metrics = {

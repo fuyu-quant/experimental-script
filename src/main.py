@@ -20,7 +20,8 @@ def main(args):
     # Initialize model
     model = LearnableGatedPooling(
         input_dim=args.input_dim,
-        seq_len=args.seq_len
+        seq_len=args.seq_len,
+        num_classes=2  # Binary classification
     )
     
     # Define loss function and optimizer

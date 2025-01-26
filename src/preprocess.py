@@ -25,8 +25,14 @@ def prepare_data(data_path, batch_size=32):
     
     # Example data creation (replace with actual data loading)
     def create_dummy_data(num_samples, seq_len, input_dim):
-        sequences = np.random.randn(num_samples, seq_len, input_dim)
-        labels = np.random.randint(0, 2, num_samples)
+        half_samples = num_samples // 2
+        sequences_0 = np.random.randn(half_samples, seq_len, input_dim)
+        labels_0 = np.zeros(half_samples, dtype=int)
+        sequences_1 = np.random.randn(num_samples - half_samples, seq_len, input_dim)
+        labels_1 = np.ones(num_samples - half_samples, dtype=int)
+        
+        sequences = np.concatenate([sequences_0, sequences_1], axis=0)
+        labels = np.concatenate([labels_0, labels_1], axis=0)
         return sequences, labels
     
     # Create datasets
