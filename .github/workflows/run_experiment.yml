@@ -27,12 +27,12 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: output file
-          path: output/output.log
+          name: output
+          path: output/output.txt
           retention-days: 1
 
       - uses: actions/upload-artifact@v4
         with:
-            name: error file
-            path: output/error.log
+            name: error
+            path: output/error.txt
             retention-days: 1
